@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>darkmode</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Pengertian nav (https://chat.openai.com/share/8fb065b5-1f0e-4521-ab9e-76b9e261ba91) -->
+      <nav>
+        <a onclick="reRender()" id="home">HOME</a>
+        <a onclick="darkMode()" id="mode">Mode</a>
+      </nav>
+      <h1>HALO SAMUEL</h1>
+      <p class="info" id="info"></p>
+    </div>
+
+    <!-- initializing function -->
+    <script>
+      let body = document.body;
+      let info = document.getElementById("info");
+      let mode = document.getElementById("mode");
+      let home = document.getElementById("home");
+
+      const darkLimit = 6;
+      let darkCounter = 0;
+      let darkRemainingLeft;
+
+      function darkMode() {
+        if (darkRemainingLeft == 1) {
+          info.textContent = "DARK MODE LIMIT";
+          mode.style.display = "none";
+          home.textContent = "RESTART";
+          return;
+        }
+
+        darkCounter += 1;
+        darkRemainingLeft = darkLimit - darkCounter;
+
+        // render ke info elemen
+        info.textContent = `Anda memakai darkmode sebanyak ${darkCounter}x dan tersisa sebanyak ${darkRemainingLeft}`;
+        body.classList.toggle("dark");
+      }
+
+      function reRender() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
