@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hehe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>HALO DUNIA</h1>
+      <nav>
+        <a onclick="reRender()" id="home">HOME</a>
+        <a onclick="darkMode()" id="mode">Mode</a>
+      </nav>
+    </div>
+
+    <script>
+      let body = document.body;
+
+      function darkMode() {
+        body.classList.toggle("dark");
+      }
+    </script>
+  </body>
+</html>
